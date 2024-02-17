@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Sign In Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      filter: blur(5px); /* Add the blur effect to the background */
+      background-image: url("assets/images/background-1.jpg"); /* Replace 'your-background-image.jpg' with the path to your background image */
+      background-size: cover;
+      background-position: center;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.9); /* Adding some transparency to the container */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      max-width: 90%;
+      text-align: center;
+    }
+    .toggle-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+    .toggle-buttons button {
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px;
+    }
+    .form-container {
+      display: none;
+    }
+    .form-container.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+  <div class="container">
+    <div class="toggle-buttons">
+      <button onclick="netlifyIdentity.open()">Login</button>
+      <button onclick="netlifyIdentity.open('signup')">Sign Up</button>
+    </div>
+    <div id="loginForm" class="form-container active">
+      <h2>Login</h2>
+      <form>
+        <input type="email" placeholder="Email" required><br><br>
+        <input type="password" placeholder="Password" required><br><br>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+    <div id="signupForm" class="form-container">
+      <h2>Sign Up</h2>
+      <form>
+        <input type="text" placeholder="Full Name" required><br><br>
+        <input type="email" placeholder="Email" required><br><br>
+        <input type="password" placeholder="Password" required><br><br>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+<!-- Netlify Identity Widget -->
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Netlify Identity Widget
+    netlifyIdentity.init();
+    
+    const homepageURL = "index.html"; // Replace with your actual home page URL
+
+    netlifyIdentity.on('login', function() {
+      // Redirect to home page after successful login
+      window.location.href = homepageURL;
+    });
+
+    netlifyIdentity.on('signup', function() {
+      // Redirect to home page after successful sign-up
+      window.location.href = homepageURL;
+    });
+  });
+</script>
+
+
+</body>
+</html>
