@@ -1,5 +1,8 @@
 # Project Magnet - Note and Study Material Application for NSUT Students
 
+## Must checkout !
+https://magnet2.netlify.app/
+
 ## Overview
 
 Welcome to Project Magnet, a powerful note-taking and study material application designed specifically for NSUT (Netaji Subhas University of Technology) students. This application aims to streamline and enhance the academic experience by providing a centralized platform for organizing, creating, and accessing study materials efficiently.
