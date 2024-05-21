@@ -1,0 +1,314 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#e66465, #9198e5);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .container {
+    background-color: rgba(0, 0, 0, 0.164);
+    padding: 20px;
+    padding-left: 20px;
+    border-radius: 15px;
+    width: 90%;
+    height: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    overflow-y: scroll;
+  }
+  
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .screenshot::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .screenshot:hover::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .app-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between; /* Align items with space between them */
+  }
+  
+  .app-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 20%;
+    margin-left: 3%;
+  }
+  
+  .app-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 50%;
+  }
+  
+  .stars1 {
+    margin-top: 5px;
+    color: gold;
+    font-size: 20px;
+    margin-left: 50%;
+  }
+  
+  .app-description {
+    margin: 50px 30px;
+    margin-left: 2%;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  
+  .features {
+    margin: 20px 0;
+    margin-left: 2%;
+  }
+  
+  .features ol {
+    list-style: none;
+    padding: 0;
+    
+  }
+  
+  .features li {
+    margin:20px 20px;
+    padding-left: 20px;
+    position: relative;
+  }
+  .reviews {
+    margin: 20px 0;
+  }
+  
+  .review {
+    display: flex;
+    align-items: flex-start;
+    background-color: #f8f8f849;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+  }
+  
+  .review-content {
+    flex-grow: 1;
+  }
+  
+  .review-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .stars {
+    font-size: 18px;
+    color: gold;
+    margin-left: 0%;
+  }
+  
+  .review-date {
+    font-size: 14px;
+    color: #ffffff;
+    
+  }
+  
+  .review-text {
+    font-size: 16px;
+    color: rgb(250, 246, 246);
+    line-height: 1.5;
+  }
+  
+  .button-container {
+    margin-left: auto;
+    margin-top: 20px;
+    margin-right: 2%;
+  }
+  
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s;
+  }
+  
+  .button:hover {
+    background-color: #0056b3;
+  }
+  .heading {
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      width: 80%;
+  }
+  
+  .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+  }
+  
+  .carousel-item.active {
+      opacity: 1; /* Show the active image */
+      position: relative; /* Show the active image in the normal flow */
+  }
+  
+  .carousel-item {
+      min-width: 100%;
+      transition: transform 0.5s ease, opacity 0.5s ease;
+      opacity: 0; /* Start with images hidden */
+      position: absolute; /* Overlay all items on top of each other */
+      top: 0;
+      left: 0;
+      border-radius: 20px;
+      width: 100%;
+      height: 100%;
+  }
+  
+  .carousel-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+  }
+  
+  .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 100;
+      padding: 10px;
+      border-radius: 50%; /* Make buttons round */
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  .carousel-control.prev {
+      left: 10px;
+  }
+  
+  .carousel-control.next {
+      right: 10px;
+  }
+  
+  .carousel-nav {
+      text-align: center;
+      margin-top: 15px;
+  }
+  
+  .nav-dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+  }
+  
+  .nav-dot.active {
+      background-color: #717171;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .carousel {
+      max-width: 100%;
+    }
+  
+    .carousel-control {
+      padding: 8px;
+    }
+  
+    .prev {
+      left: 5px;
+    }
+  
+    .next {
+      right: 5px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .carousel-control {
+      padding: 6px;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .app-header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .app-icon {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .app-title {
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .stars {
+      margin-left: 0;
+      text-align: center;
+    }
+  
+    .button-container {
+      margin-top: 10px; /* Adjust as needed */
+      margin-left: 0;
+      text-align: center;
+      margin-right: 20px;
+      width: 90%;
+    }
+  
+    .button {
+      width: 80%;
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .button {
+      width: 100%;
+      padding: 15px;
+    }
+    
+  }
