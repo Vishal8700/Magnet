@@ -1,29 +1,41 @@
+var textToWrite = "Ultimate Destination for NSUT Students !";
+var textContainer = document.getElementById("text-container");
 
-    var textToWrite = "Ultimate Destination for NSUT Students !";
+var currentPosition = 0;
+var interval;
+
+function animateTextWriting() {
+  textContainer.innerHTML = '';
+  currentPosition = 0;
+
+  interval = setInterval(function() {
+    textContainer.innerHTML += textToWrite[currentPosition];
+    currentPosition++;
     
-    var textContainer = document.getElementById("text-container");
-    
-    function animateTextWriting() {
-     
-      textContainer.innerHTML = '';
-  
-      var currentPosition = 0;
-      
-  
-      var interval = setInterval(function() {
-  
-        textContainer.innerHTML += textToWrite[currentPosition];
-        currentPosition++;
-        
-        if (currentPosition === textToWrite.length) {
-          clearInterval(interval); 
-        }
-      }, 100); 
+    if (currentPosition === textToWrite.length) {
+      clearInterval(interval); 
     }
-  
-    function restartAnimation() {
-      animateTextWriting(); 
-      setInterval(animateTextWriting, 10000); 
-    }
-  
-    restartAnimation();
+  }, 100);
+}
+
+function startAnimation() {
+  clearInterval(interval); // Clear any previous interval
+  animateTextWriting(); 
+}
+
+function handleVisibilityChange() {
+  if (document.hidden) {
+    clearInterval(interval); // Pause animation
+  } else {
+    startAnimation(); // Resume animation
+  }
+}
+
+document.addEventListener("visibilitychange", handleVisibilityChange);
+
+function restartAnimation() {
+  startAnimation();
+  setInterval(startAnimation, 10000); 
+}
+
+restartAnimation();
